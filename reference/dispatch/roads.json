@@ -1,0 +1,14 @@
+{
+  "segments": [
+    {"segmentId": "R-BINHE-1", "from": "W-001", "to": "W-002", "lengthM": 80, "name": "滨河路(东段)"},
+    {"segmentId": "R-BINHE-2", "from": "W-002", "to": "W-003", "lengthM": 90, "name": "滨河路(西段)"},
+    {"segmentId": "R-WT-1", "from": "W-010", "to": "W-011", "lengthM": 70, "name": "梧桐苑内部路"},
+    {"segmentId": "R-WT-BINHE", "from": "W-011", "to": "W-001", "lengthM": 650, "name": "梧桐滨河联络路"},
+    {"segmentId": "R-BINHE-PUMP", "from": "W-003", "to": "W-020", "lengthM": 700, "name": "滨河至泵站路"},
+    {"segmentId": "R-BEIHU-PUMP", "from": "W-030", "to": "W-020", "lengthM": 1100, "name": "北湖下穿引线"},
+    {"segmentId": "R-WT-PUMP", "from": "W-010", "to": "W-020", "lengthM": 820, "name": "梧桐至泵站北路"}
+  ],
+  "speedKmh": 25,
+  "fixedSeconds": 300,
+  "slackSeconds": 900
+}

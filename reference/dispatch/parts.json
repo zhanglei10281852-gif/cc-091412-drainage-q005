@@ -1,0 +1,15 @@
+{
+  "parts": [
+    {"partId": "PUMP-6INCH", "name": "6寸移动泵组", "unit": "台"},
+    {"partId": "GENSET-5KW", "name": "5kW发电机", "unit": "台"},
+    {"partId": "CONES-TRAFFIC", "name": "交通锥", "unit": "个"},
+    {"partId": "BARRIER-HAZARD", "name": "危险隔离围栏", "unit": "片"},
+    {"partId": "PIPE-DN300", "name": "DN300排水软管", "unit": "根"},
+    {"partId": "CABLE-SPARE", "name": "备用电缆", "unit": "卷"},
+    {"partId": "GAS-DETECTOR", "name": "气体检测仪", "unit": "台"}
+  ],
+  "warehouses": [
+    {"warehouseId": "WH-MAIN", "name": "厂部应急库", "nodeId": "W-020", "stock": {"PUMP-6INCH": 4, "GENSET-5KW": 4, "CONES-TRAFFIC": 200, "BARRIER-HAZARD": 60, "PIPE-DN300": 30, "CABLE-SPARE": 12, "GAS-DETECTOR": 4}},
+    {"warehouseId": "WH-BINHE", "name": "滨河驻点", "nodeId": "W-001", "stock": {"PUMP-6INCH": 1, "GENSET-5KW": 1, "CONES-TRAFFIC": 60, "BARRIER-HAZARD": 12, "PIPE-DN300": 8}}
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "hazards": [
+    {
+      "hazardId": "HZ-DEEP",
+      "label": "深度危险",
+      "condition": {"field": "depthM", "op": ">=", "value": 0.50},
+      "requiredQualifications": ["confined", "gas-detect"],
+      "requiredParts": {"BARRIER-HAZARD": 4},
+      "isolateBeforeDispatch": true,
+      "priority": 100
+    },
+    {
+      "hazardId": "HZ-ELECTRICAL",
+      "label": "带电环境(泵站/地铁口)",
+      "condition": {"nodeKindIn": ["pump_station"]},
+      "requiredQualifications": ["electrical", "confined"],
+      "requiredParts": {"CABLE-SPARE": 1, "BARRIER-HAZARD": 2},
+      "isolateBeforeDispatch": true,
+      "priority": 90
+    },
+    {
+      "hazardId": "HZ-UNDERPASS",
+      "label": "下穿隧道低洼",
+      "condition": {"communityIn": ["北湖下穿"]},
+      "requiredQualifications": ["traffic", "pump"],
+      "requiredParts": {"CONES-TRAFFIC": 10, "BARRIER-HAZARD": 2},
+      "isolateBeforeDispatch": false,
+      "priority": 80
+    },
+    {
+      "hazardId": "HZ-MODERATE",
+      "label": "一般积水",
+      "condition": {"field": "depthM", "op": ">=", "value": 0.30},
+      "requiredQualifications": ["pump"],
+      "requiredParts": {"CONES-TRAFFIC": 4},
+      "isolateBeforeDispatch": false,
+      "priority": 10
+    }
+  ]
+}

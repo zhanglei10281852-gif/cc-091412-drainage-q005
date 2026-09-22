@@ -3,6 +3,9 @@ services:
     build: .
     environment:
       PORT: 8000
+      DISPATCH_DATA_DIR: /data
+    volumes:
+      - dispatch-data:/data
     ports:
       - "8000:8000"
     healthcheck:
@@ -10,3 +13,6 @@ services:
       interval: 5s
       timeout: 2s
       retries: 5
+
+volumes:
+  dispatch-data:

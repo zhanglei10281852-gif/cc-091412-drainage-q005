@@ -1,0 +1,77 @@
+{
+  "crews": [
+    {
+      "crewId": "C-A",
+      "name": "抢险一班",
+      "qualifications": ["confined", "pump", "electrical", "traffic", "gas-detect"],
+      "base": "滨河驻点",
+      "homeNodeId": "W-001",
+      "vehicle": {
+        "vehicleId": "V-A",
+        "plate": "浙A·A1001",
+        "heightM": 2.35,
+        "draftM": 0.45,
+        "wadingLimitM": 0.50,
+        "gvwT": 12.0,
+        "capacity": {
+          "PUMP-6INCH": 1,
+          "GENSET-5KW": 1,
+          "CONES-TRAFFIC": 20,
+          "BARRIER-HAZARD": 4,
+          "PIPE-DN300": 4,
+          "CABLE-SPARE": 2,
+          "GAS-DETECTOR": 1
+        }
+      },
+      "shift": {"start": "2026-09-22T08:00:00+08:00", "end": "2026-09-22T20:00:00+08:00", "reliefCrewId": "C-C"}
+    },
+    {
+      "crewId": "C-B",
+      "name": "抢险二班",
+      "qualifications": ["pump", "traffic"],
+      "base": "梧桐驻点",
+      "homeNodeId": "W-010",
+      "vehicle": {
+        "vehicleId": "V-B",
+        "plate": "浙A·B2002",
+        "heightM": 2.10,
+        "draftM": 0.40,
+        "wadingLimitM": 0.40,
+        "gvwT": 8.0,
+        "capacity": {
+          "PUMP-6INCH": 1,
+          "GENSET-5KW": 1,
+          "CONES-TRAFFIC": 30,
+          "BARRIER-HAZARD": 6,
+          "PIPE-DN300": 2
+        }
+      },
+      "shift": {"start": "2026-09-22T08:00:00+08:00", "end": "2026-09-22T20:00:00+08:00", "reliefCrewId": "C-C"}
+    },
+    {
+      "crewId": "C-C",
+      "name": "夜间高危专班",
+      "qualifications": ["confined", "pump", "electrical", "traffic", "gas-detect", "night"],
+      "base": "厂部应急库",
+      "homeNodeId": "W-020",
+      "vehicle": {
+        "vehicleId": "V-C",
+        "plate": "浙A·C3003",
+        "heightM": 2.60,
+        "draftM": 0.50,
+        "wadingLimitM": 0.60,
+        "gvwT": 15.0,
+        "capacity": {
+          "PUMP-6INCH": 2,
+          "GENSET-5KW": 2,
+          "CONES-TRAFFIC": 40,
+          "BARRIER-HAZARD": 10,
+          "PIPE-DN300": 6,
+          "CABLE-SPARE": 4,
+          "GAS-DETECTOR": 2
+        }
+      },
+      "shift": {"start": "2026-09-22T20:00:00+08:00", "end": "2026-09-23T08:00:00+08:00", "reliefCrewId": "C-A"}
+    }
+  ]
+}

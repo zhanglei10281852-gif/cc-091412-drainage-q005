@@ -1,0 +1,3 @@
+{"receiptId": "RC-SAMPLE-01", "workOrderId": "WO-MG-BEIHU-202609220745", "status": "onsite", "occurredAt": "2026-09-22T07:52:00+08:00", "depthM": 0.42, "note": "班组手持终端离线，到场后补传"}
+{"receiptId": "RC-SAMPLE-02", "workOrderId": "WO-MG-BEIHU-202609220745", "status": "working", "occurredAt": "2026-09-22T07:58:00+08:00", "depthM": 0.38, "note": "已布设移动泵，开始抽排"}
+{"receiptId": "RC-SAMPLE-03", "workOrderId": "WO-MG-BEIHU-202609220745", "status": "restored", "occurredAt": "2026-09-22T08:31:00+08:00", "depthM": 0.05, "note": "水位回落，路面恢复通行"}

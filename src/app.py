@@ -1,33 +1,23 @@
-import json
 import os
-from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from http.server import ThreadingHTTPServer
 
+from dispatch.api import make_handler
+from dispatch.service import Service
 
 SERVICE_NAME = "drainage-service-starter"
 
 
-class Handler(BaseHTTPRequestHandler):
-    def do_GET(self):  # noqa: N802
-        if self.path == "/health":
-            payload = json.dumps({"status": "ok", "service": SERVICE_NAME}).encode("utf-8")
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json; charset=utf-8")
-            self.send_header("Content-Length", str(len(payload)))
-            self.end_headers()
-            self.wfile.write(payload)
-            return
-        payload = b'{"error":"not_found"}'
-        self.send_response(404)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Content-Length", str(len(payload)))
-        self.end_headers()
-        self.wfile.write(payload)
-
-    def log_message(self, *_args):
-        return
+def build_service() -> Service:
+    return Service(
+        start_scheduler=os.environ.get("DISPATCH_SCHEDULER", "1") == "1"
+    )
 
 
-def create_server():
+def create_server(service: Service | None = None):
+    service = service or build_service()
     port = int(os.environ.get("PORT", "8000"))
     host = os.environ.get("HOST", "0.0.0.0")
-    return ThreadingHTTPServer((host, port), Handler)
+    handler = make_handler(service, name=SERVICE_NAME)
+    server = ThreadingHTTPServer((host, port), handler)
+    server.dispatch_service = service  # type: ignore[attr-defined]
+    return server

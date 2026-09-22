@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {"nodeId": "W-001", "name": "滨河路1号检查井", "kind": "manhole", "community": "滨河小区", "lat": 30.2741, "lng": 120.1551, "coverLevel": 6.5, "warningDepth": 0.30, "dangerDepth": 0.50},
+    {"nodeId": "W-002", "name": "滨河路2号检查井", "kind": "manhole", "community": "滨河小区", "lat": 30.2742, "lng": 120.1556, "coverLevel": 6.4, "warningDepth": 0.30, "dangerDepth": 0.50},
+    {"nodeId": "W-003", "name": "滨河路3号检查井", "kind": "manhole", "community": "滨河小区", "lat": 30.2744, "lng": 120.1561, "coverLevel": 6.3, "warningDepth": 0.30, "dangerDepth": 0.50},
+    {"nodeId": "W-010", "name": "梧桐苑东检查井", "kind": "manhole", "community": "梧桐苑", "lat": 30.2691, "lng": 120.1601, "coverLevel": 5.8, "warningDepth": 0.30, "dangerDepth": 0.50},
+    {"nodeId": "W-011", "name": "梧桐苑西检查井", "kind": "manhole", "community": "梧桐苑", "lat": 30.2693, "lng": 120.1596, "coverLevel": 5.7, "warningDepth": 0.30, "dangerDepth": 0.50},
+    {"nodeId": "W-020", "name": "地铁C口泵站", "kind": "pump_station", "community": "地铁C口", "lat": 30.2710, "lng": 120.1620, "coverLevel": 4.0, "warningDepth": 0.40, "dangerDepth": 0.60},
+    {"nodeId": "W-030", "name": "下穿隧道入口检查井", "kind": "manhole", "community": "北湖下穿", "lat": 30.2801, "lng": 120.1701, "coverLevel": 3.2, "warningDepth": 0.20, "dangerDepth": 0.35}
+  ],
+  "edges": [
+    {"from": "W-001", "to": "W-002", "lengthM": 80, "diameterMm": 800},
+    {"from": "W-002", "to": "W-003", "lengthM": 90, "diameterMm": 800},
+    {"from": "W-010", "to": "W-011", "lengthM": 70, "diameterMm": 600},
+    {"from": "W-011", "to": "W-001", "lengthM": 650, "diameterMm": 1000},
+    {"from": "W-003", "to": "W-020", "lengthM": 700, "diameterMm": 1200},
+    {"from": "W-030", "to": "W-020", "lengthM": 1100, "diameterMm": 1000}
+  ],
+  "mergeGroups": [
+    {"groupId": "MG-BINHE", "community": "滨河小区", "nodeIds": ["W-001", "W-002", "W-003"], "radiusM": 120, "reason": "同一段滨河路干管，连续降雨时连片冒溢"},
+    {"groupId": "MG-WUTONG", "community": "梧桐苑", "nodeIds": ["W-010", "W-011"], "radiusM": 100, "reason": "同一小区支管串联"},
+    {"groupId": "MG-METRO", "community": "地铁C口", "nodeIds": ["W-020"], "radiusM": 60, "reason": "泵站单点影响地铁口"},
+    {"groupId": "MG-BEIHU", "community": "北湖下穿", "nodeIds": ["W-030"], "radiusM": 80, "reason": "下穿隧道低洼点"}
+  ]
+}
