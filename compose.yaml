@@ -3,10 +3,16 @@ services:
     build: .
     environment:
       PORT: 8000
+      DATA_DIR: /data
     ports:
       - "8000:8000"
+    volumes:
+      - dispatch-data:/data
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
       interval: 5s
       timeout: 2s
       retries: 5
+
+volumes:
+  dispatch-data:

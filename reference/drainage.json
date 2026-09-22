@@ -1,0 +1,54 @@
+{
+  "timezone": "Asia/Shanghai",
+  "wells": [
+    {"id": "W-101", "label": "春风里3号楼污水井", "kind": "manhole", "compound": "春风里小区", "node": "N-CF"},
+    {"id": "W-102", "label": "春风里西门接驳井", "kind": "manhole", "compound": "春风里小区", "node": "N-CF"},
+    {"id": "W-201", "label": "柳岸庄泵站前井", "kind": "manhole", "compound": "柳岸庄小区", "node": "N-LA"},
+    {"id": "W-301", "label": "五金厂提升泵站", "kind": "pump_station", "compound": "五金厂区", "node": "N-WJ"}
+  ],
+  "pipes": [
+    {"from": "W-101", "to": "W-102", "diameterMm": 800}
+  ],
+  "roadNodes": [
+    {"id": "D", "label": "抢修基地"},
+    {"id": "J1", "label": "滨河路口"},
+    {"id": "J2", "label": "城南立交"},
+    {"id": "N-CF", "label": "春风里小区门口"},
+    {"id": "N-LA", "label": "柳岸庄小区门口"},
+    {"id": "N-WJ", "label": "五金厂门岗"}
+  ],
+  "roadEdges": [
+    {"id": "E1", "from": "D", "to": "J1", "lengthM": 900},
+    {"id": "E2", "from": "J1", "to": "N-CF", "lengthM": 600},
+    {"id": "E3", "from": "J1", "to": "J2", "lengthM": 1200},
+    {"id": "E4", "from": "J2", "to": "N-LA", "lengthM": 700},
+    {"id": "E5", "from": "J2", "to": "N-WJ", "lengthM": 2600, "maxClass": "中型"}
+  ],
+  "parts": [
+    {"id": "P-PUMP", "label": "移动抽排泵"},
+    {"id": "P-GAS", "label": "气体检测仪"},
+    {"id": "P-FAN", "label": "通风机"},
+    {"id": "P-SAND", "label": "防汛沙袋"}
+  ],
+  "vehicles": [
+    {"id": "V-BIG", "label": "大型抽排车", "class": "大型", "parts": {"P-PUMP": 1, "P-GAS": 1, "P-FAN": 1, "P-SAND": 20}},
+    {"id": "V-MID", "label": "中型工程车", "class": "中型", "parts": {"P-PUMP": 1, "P-GAS": 0, "P-SAND": 10}},
+    {"id": "V-SMALL", "label": "小型巡查车", "class": "小型", "parts": {"P-SAND": 30}}
+  ],
+  "teams": [
+    {"id": "T-A", "name": "猛虎班", "qualifications": ["高危作业", "有限空间作业", "抽排"], "vehicleId": "V-BIG", "shift": {"start": "00:00", "end": "24:00"}},
+    {"id": "T-B", "name": "迅龙班", "qualifications": ["有限空间作业", "抽排"], "vehicleId": "V-MID", "shift": {"start": "08:00", "end": "20:00"}},
+    {"id": "T-C", "name": "巡守班", "qualifications": ["常规巡查", "隔离警戒"], "vehicleId": "V-SMALL", "shift": {"start": "00:00", "end": "24:00"}}
+  ],
+  "rules": {
+    "dangerLevels": [
+      {"level": "high", "minDepthCm": 50, "requiredQualifications": ["高危作业", "有限空间作业"], "requiredParts": ["P-PUMP", "P-GAS"], "isolationRequired": true},
+      {"level": "medium", "minDepthCm": 25, "requiredQualifications": ["有限空间作业"], "requiredParts": ["P-PUMP"], "isolationRequired": false},
+      {"level": "low", "minDepthCm": 0, "requiredQualifications": [], "requiredParts": ["P-SAND"], "isolationRequired": false}
+    ],
+    "travelSpeedMPerMin": 500,
+    "etaSlackMinutes": [2, 8],
+    "reminders": {"signTimeoutMinutes": 15, "arriveTimeoutMinutes": 30},
+    "receiptTypes": ["signed", "enroute", "arrived", "resolved", "recovered", "parts_used", "isolation_confirmed"]
+  }
+}

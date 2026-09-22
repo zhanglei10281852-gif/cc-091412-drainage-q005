@@ -1,0 +1,9 @@
+{
+  "id": "RC-DEMO-0001",
+  "workOrderId": "WO-0001",
+  "teamId": "T-A",
+  "type": "arrived",
+  "occurredAt": "2026-09-22T10:35:00+08:00",
+  "note": "班组抵达春风里小区门口，积水约55cm，已按到场回执上报",
+  "offline": false
+}
